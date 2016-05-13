@@ -1,0 +1,16 @@
+{{#paper-content flex=true flex-layout="column"}}
+  {{#each groupedMessages as |message|}}
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{message.author}}{{/text.headline}}
+        {{/title.text}}
+      {{/card.title}}
+      {{#card.content}}
+        {{#each message.messages as |innerMessage|}}
+          <p>{{innerMessage}}</p>
+        {{/each}}
+      {{/card.content}}
+    {{/paper-card}}
+  {{/each}}
+{{/paper-content}}

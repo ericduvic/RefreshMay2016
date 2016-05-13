@@ -1,0 +1,12 @@
+<div style="flex: 1 1 auto; overflow: scroll; min-height: 0px;">
+  {{chat-view messages=model}}
+</div>
+<div style="flex: 0 0 auto;">
+  {{#paper-content flex=true flex-layout="row"}}
+    {{paper-input label="Author" value=author onChange=(action (mut author)) flex=20}}
+    {{paper-input label="Message" value=message textarea=true onChange=(action (mut message)) flex=80 id='message-box'}}
+    {{#paper-button primary=true raised=true fab=true bubbles=false onClick=(action "submitMessage") disabled=disableSubmit}}
+      Say it!
+    {{/paper-button}}
+  {{/paper-content}}
+</div>
