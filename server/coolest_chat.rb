@@ -9,6 +9,11 @@ connection = PG.connect(
   password: ''
 )
 
+options '*' do
+  headers 'Access-Control-Allow-Origin' => '*'
+  headers 'Access-Control-Allow-Headers' => 'Content-Type'
+end
+
 get '/' do
   "Hello world!"
 end
@@ -21,7 +26,7 @@ get '/messages' do
         'type' => 'message',
         'id' => row['id'],
         'attributes' => {
-          'system_create_time' => row['system_create_time'],
+          'system-create-time' => row['system_create_time'],
           'author' => row['author'],
           'message' => row['message']
         }
@@ -45,7 +50,7 @@ post '/messages' do
         'type' => 'message',
         'id' => row['id'],
         'attributes' => {
-          'system_create_time' => row['system_create_time'],
+          'system-create-time' => row['system_create_time'],
           'author' => row['author'],
           'message' => row['message']
         }
