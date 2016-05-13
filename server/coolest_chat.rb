@@ -29,6 +29,7 @@ get '/messages' do
     end
   end
 
+  headers 'Access-Control-Allow-Origin' => '*'
   content_type "application/vnd.api+json"
   body Oj.dump({
     'data' => message_queue
@@ -52,6 +53,7 @@ post '/messages' do
     end
   end
 
+  headers 'Access-Control-Allow-Origin' => '*'
   content_type "application/vnd.api+json"
   status 201
   headers "Location" => "#{request.base_url}/messages/#{data['id']}"
