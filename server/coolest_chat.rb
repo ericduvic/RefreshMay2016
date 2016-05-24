@@ -3,10 +3,10 @@ require 'oj'
 require 'pg'
 
 connection = PG.connect(
-  host: 'localhost',
-  dbname: 'eric',
-  user: 'eric',
-  password: ''
+  host: '192.168.33.15',
+  dbname: 'coolest_chat',
+  user: 'chatapp',
+  password: 'V3ry$3cR37'
 )
 
 options '*' do
