@@ -4,6 +4,7 @@
 forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetlabs-apache'
+mod 'puppetlabs-postgresql'
 
 # use dependencies defined in metadata.json
 # metadata
