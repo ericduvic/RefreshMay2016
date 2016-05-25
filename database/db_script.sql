@@ -7,3 +7,5 @@ CREATE TABLE messages (
     message TEXT NOT NULL DEFAULT 'Look at me I think I am special and do not have to put a message!',
     system_create_time TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW()
 ) WITHOUT OIDS;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO chatapp;
