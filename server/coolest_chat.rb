@@ -2,13 +2,6 @@ require 'sinatra'
 require 'oj'
 require 'pg'
 
-connection = PG.connect(
-  host: '192.168.33.15',
-  dbname: 'coolest_chat',
-  user: 'chatapp',
-  password: 'V3ry$3cR37'
-)
-
 options '*' do
   headers 'Access-Control-Allow-Origin' => '*'
   headers 'Access-Control-Allow-Headers' => 'Content-Type'
@@ -19,6 +12,13 @@ get '/' do
 end
 
 get '/messages' do
+  connection = PG.connect(
+    host: '192.168.33.15',
+    dbname: 'coolest_chat',
+    user: 'chatapp',
+    password: 'V3ry$3cR37'
+  )
+
   message_queue = []
   connection.exec("SELECT * FROM messages") do |result|
     result.each do |row|
@@ -42,6 +42,13 @@ get '/messages' do
 end
 
 post '/messages' do
+  connection = PG.connect(
+    host: '192.168.33.15',
+    dbname: 'coolest_chat',
+    user: 'chatapp',
+    password: 'V3ry$3cR37'
+  )
+  
   data = nil
   attributes = Oj.load(request.body)['data']['attributes']
   connection.exec_params("INSERT INTO messages (author, message) VALUES ($1, $2) RETURNING *", [attributes['author'], attributes['message']]) do |result|
