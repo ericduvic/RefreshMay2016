@@ -22,7 +22,6 @@ Vagrant.configure(2) do |config|
   # Provisioning with puppet.
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "modules"
-    # puppet.options = "--verbose --debug"
   end
 
   # Now we define specific information for multiple vms
